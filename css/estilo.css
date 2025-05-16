@@ -1,0 +1,973 @@
+/* ========== ESTILOS GENERALES ========== */
+/* Asegurar que el body no genere desbordamiento lateral */
+html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Evita el scroll horizontal */
+    background-color: #F8F3D9; /* Mantiene el color de fondo */
+    font-family: 'Times New Roman', serif;
+}
+
+*{
+    font-size: 1.2rem;
+}
+
+a{
+    font-size: 1.2rem;
+}
+
+/* ========== CONTENEDOR PRINCIPAL ========== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #F8F3D9;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* ========== ENCABEZADO ========== */
+header {
+    background-color: #B9B28A;
+    color: #FFFFFF;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+/* ========== TÍTULO DEL ENCABEZADO ========== */
+.header-content {
+    text-align: center;
+    font-size: 2.5em;
+}
+
+/* ========== MENÚ DE NAVEGACIÓN ========== */
+.nav-container {
+    background-color: #B17F59;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.menu li {
+    position: relative;
+}
+
+.menu a {
+    display: block;
+    padding: 10px 20px;
+    color: #F8F3D9;
+    text-decoration: none;
+    background-color: #B17F59;
+}
+
+.menu a:hover {
+    background-color: #F0A04B;
+}
+
+/* ========== ESTILOS DE LOS SUBMENÚS ========== */
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #A5B68D;
+    min-width: 180px;
+    border-radius: 5px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+    text-align: left;
+    padding: 0;
+    z-index: 1000;
+}
+
+.submenu li {
+    position: relative;
+    list-style: none;
+}
+
+.submenu a {
+    display: block;
+    padding: 10px;
+    background-color: #A5B68D;
+    color: #504B38;
+    text-decoration: none;
+    width: 100%;
+}
+
+.submenu a:hover {
+    background-color: #FADA7A;
+}
+
+/* Submenús de tercer nivel (se despliegan a la derecha) */
+.submenu li:hover > .submenu {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    min-width: 180px;
+    white-space: nowrap;
+    z-index: 1000;
+}
+
+/* Mostrar submenús al pasar el mouse */
+.menu li:hover > .submenu {
+    display: list-item;
+}
+
+/* ========== SECCIÓN DE IMAGEN DESTACADA ========== */
+.banner {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.banner img {
+    width: 100%;
+    max-width: 1920px;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* ========== CONTENEDOR DEL CONTENIDO ========== */
+.main-container {
+    background-color: #EDE8DC;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: justify;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ========== ESTILOS PARA CADA SECCIÓN DE CONTENIDO ========== */
+.content {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #FFF7E2;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Títulos */
+.content h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #B17F59;
+}
+
+/* Párrafos */
+.content p {
+    padding: 15px;
+    margin: 10px 0;
+    background-color: #FFF7E2;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Listas */
+.content ul, .content ol {
+    margin: 0;
+    padding-left: 20px;
+    background-color: #FFF7E2;
+}
+
+/* ========== PIE DE PÁGINA ========== */
+footer {
+    background-color: #B9B28A;
+    padding: 10px;
+    text-align: center;
+    color: #F8F3D9;
+    border-radius: 10px;
+}
+
+.redes-sociales a {
+    color: #F8F3D9;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.redes-sociales a:hover {
+    color: #F0A04B;
+}
+
+/* ========== EFECTO DE RESALTADO AL HACER CLIC EN UN ENLACE CON ID ========== */
+:target {
+    animation: highlight-fade 5s ease-in-out;
+}
+
+/* Animación de desvanecimiento */
+@keyframes highlight-fade {
+    0% { background-color: #FADA7A; }
+    50% { background-color: #FFF7E2; }
+    100% { background-color: transparent; }
+}
+
+/* Asegurar que el efecto se aplique a las secciones específicas */
+section:target {
+    background-color: #FADA7A;
+    border-radius: 10px;
+    transition: background-color 2s ease-in-out;
+}
+
+
+/* ========== RESPONSIVE DESIGN ========== */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 10px;
+    }
+
+    .main-container {
+        padding: 15px;
+    }
+
+    .content {
+        padding: 15px;
+    }
+
+    .menu {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .submenu {
+        position: static;
+        display: none;
+        width: 100%;
+    }
+
+    .menu li:hover > .submenu {
+        display: block;
+    }
+
+    .banner img {
+        max-width: 100%;
+        height: auto;
+    }
+    form {
+        max-width: 90%;
+        padding: 20px;
+    }
+    
+}
+
+/* Establecer un ancho máximo de 1920px y que se adapte a pantallas más pequeñas */
+div {
+    max-width: 1920px;
+    width: 100%;
+    margin: 0 auto; /* Centra los divs */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Si necesitas que el contenido no esté pegado a los bordes en pantallas más grandes */
+.container {
+    max-width: 1920px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.profile {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    text-align: center;
+    width: auto; /* Asegura que ocupe todo el ancho disponible */
+    padding: 20px;
+}
+
+.profile img {
+    max-width: 500px;
+    max-height: 500px;
+    width: auto;
+    height: auto;
+    border-radius: 10px; /* Opcional, si quieres bordes redondeados */
+}
+
+/* ==============Formulario=================== */
+form {
+    max-width: 400px; /* Ajuste uniforme del tamaño */
+    width: 100%;
+    margin: 20px auto;
+    padding: 30px; /* Reducido para mejor proporción */
+    background: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Título del formulario */
+form h2 {
+    font-size: 20px;
+    color: #504B38;
+    margin-bottom: 20px;
+}
+
+/* Etiquetas */
+label {
+    font-weight: bold;
+    display: block;
+    text-align: center; /* Alinear con el input */
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #555;
+}
+
+/* Campos de entrada y área de texto */
+input, textarea {
+    width: calc(100% - 20px); /* Ajuste uniforme con márgenes */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #333;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Área de texto con altura predefinida */
+textarea {
+    height: 120px;
+    resize: none;
+}
+
+/* Botón */
+button {
+    width: 100%; /* Asegurar que tenga el mismo ancho */
+    padding: 12px;
+    background: #B9B28A;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
+}
+
+/* Efecto hover en el botón */
+button:hover {
+    background: #A5B68D;
+}
+
+/* =======Estilo del botón en las cards========== */
+.btn-card {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #B9B28A;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    width: 100%; /* Hace que el botón ocupe todo el ancho disponible */
+    box-sizing: border-box;
+}
+
+/* Efecto DE BOTON */
+.btn-card:hover {
+    background-color: #A5B68D;
+}
+
+
+
+/*======ESTILO DE CARRUSEL======*/
+.carousel {
+    max-width: 700px; /* Ajusta el ancho del carrusel */
+    max-height: 600px;
+    margin: auto; /* Centra el carrusel */
+    border-radius: 10px; /* Bordes redondeados */
+    overflow: hidden; /* Evita que se desborden elementos */
+    position: relative; /* Necesario para posicionar los controles correctamente */
+  }
+  
+  .carousel-inner img {
+    width: 500px; /* La imagen ocupa el 100% del ancho del carrusel */
+    height: 500px; /* Altura fija para las imágenes */
+    object-fit: cover; /* Ajusta la imagen para cubrir el espacio sin distorsionarla */
+    border-radius: 10px; /* Bordes redondeados */
+  }
+  
+  .carousel-control-prev,
+  .carousel-control-next {
+      height: 500px; /* Que ocupen toda la altura del carrusel */
+      width: 8.5%;
+      top: 50%; /* Centrar verticalmente */
+      transform: translateY(-48%); /* Ajuste fino para el centrado */
+  }
+  
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    padding: 15px; /* Ajusta el tamaño del icono */
+    border-radius: 50%; /* Iconos circulares */
+}
+  
+/*==========ESTILO DE CREADORES================*/
+  main>h2{
+    border-radius: 10px;
+    color: #FFF;
+    font-size: 2rem;
+    margin: 30px auto 50px;
+    text-align: center;
+    background-color:#A5B68D;
+    width: 400px;
+}
+.creadores {
+    display: flex; /* Apila los elementos en columna */ /* Alinea los elementos a la izquierda */
+    gap: 20px; /* Espaciado entre imagen y texto */
+    margin-bottom: 20px; /* Espaciado entre cada creador */
+    padding: 15px;
+    justify-self: center;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #EDE8DC; /* Color de fondo opcional */
+    width: 1500px; /* Ajusta el tamaño del contenedor al contenido */
+}
+span.foto{
+    display: flex;
+    width: 340px;
+    height: 340px;
+    align-self: center;
+    margin-left: 30px;
+}
+
+.foto img {
+    border-radius: 10px; /* Bordes redondeados opcionales */
+    height: 330px;
+    width: 330px;
+    border: 5px solid #bb8860; /* Color del marco */
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); /* Sombra para dar profundidad */
+}
+
+.infocreador {
+    display: flex;
+    float: right;
+    flex-direction: column; /* Organiza la información en columna */
+    max-width: 600px; /* Limita el ancho del texto */
+    margin: 10px 220px;
+}
+.infocreador h2{
+    color: #FFF;
+    font-size: 2rem;
+    border-radius: 10px;
+    background-color:#B9B28A;
+    width: 250px;
+    margin: auto;
+
+}
+p.agradecimiento{
+    font-size: large;
+    display: flex;
+    width: fit-content;
+    margin: 0 auto;
+}
+table.wiki {
+    width: 90%;
+    border-collapse: collapse;
+    margin: 30px auto;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    background-color: #B9B28A;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
+  table.wiki caption {
+    caption-side: top;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+    color:#333;
+  }
+  
+  table.wiki th, table.wiki td {
+    border: 1px solid #333;
+    padding: 10px;
+    text-align: left;
+    vertical-align: top;
+  }
+  
+  table.wiki th {
+    background-color: #B17F59;
+    color: #000;
+  }
+  
+  table.wiki tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  /* Animación para las cards */
+.content {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #FFF7E2;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Efecto hover sobre las cards */
+.card:hover {
+    transform: scale(1.05); /* Escala  */
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2); /* Más sombra para efecto de elevación */
+    transition: transform 0.4s ease, box-shadow 0.4s ease; /* Transición más suave */
+}
+
+/* Si quieres que las cards tengan un efecto de sombra al inicio */
+.card {
+    transition: all 0.3s ease-in-out;
+}
+
+/* === ESTILOS PARA LA TABLA MITOLÓGICA === */
+/* Contenedor responsivo (para móviles) */
+.table-responsive {
+    overflow-x: auto;
+    margin: 2rem 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Tabla principal */
+  .mito-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Times New Roman', Times, serif;
+    background: white;
+    color: #333;
+  }
+  
+  /* Cabecera de tabla */
+  .mito-table thead {
+    background:#B17F59;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .mito-table th {
+    padding: 1rem 1.5rem;
+    text-align: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+  
+  /* Celdas */
+  .mito-table td {
+    padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid #e0e0e0;
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  
+  /* Filas alternas */
+  .mito-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  /* Efecto hover */
+  .mito-table tr:hover {
+    background-color: #f1e6d2;
+    transition: background 0.3s ease;
+  }
+  
+  /* Enlaces dentro de la tabla */
+  .mito-table a {
+    color: #B17F59;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .mito-table a:hover {
+    color: #B17F59;
+    text-decoration: underline;
+  }
+  
+  /* Título de la tabla */
+  .table-title {
+    color: #B17F59;
+    margin: 3rem 0 1.5rem 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #B17F59;
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+  
+  /* Descripción de tabla */
+  .mito-table caption {
+    caption-side: top;
+    text-align: center;
+    font-style: italic;
+    color: #666;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    padding: 0.5rem;
+  }
+  
+  .content {
+  text-align: center;
+}
+
+.content video {
+  max-width: 100%;
+  height: auto; /* Esto asegura que la altura se ajuste proporcionalmente */
+}
+@media screen and (max-width: 600px) {
+    .mito-table thead {
+      display: none;
+    }
+  
+    .mito-table, 
+    .mito-table tbody, 
+    .mito-table tr, 
+    .mito-table td {
+      display: block;
+      width: 100%;
+    }
+  
+    .mito-table tr {
+      margin-bottom: 1.5rem;
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      padding: 1rem;
+    }
+  
+    .mito-table td {
+      text-align: left;
+      padding: 0.75rem 1rem;
+      position: relative;
+    }
+  
+    .mito-table td::before {
+      content: attr(data-label);
+      font-weight: bold;
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #B17F59;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+    }
+    .mito-table audio {
+        width: 100%;
+        max-width: 200px;
+        margin-top: 5px;
+      }
+      
+      /* Responsivo */
+      .table-responsive {
+        overflow-x: auto;
+      }
+  }
+/*TEST PARA TAMANOS DE LETRA*/
+/* ===== Tamaños de fuente generales ===== */
+p {
+    font-size: 1.2rem; /* Aumenta el tamaño de los párrafos */
+    line-height: 1.6;  /* Mejora la legibilidad */
+}
+
+h1 {
+    font-size: 3.2rem;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+.content h2 {
+    font-size: 2rem; /* Aumenta específicamente títulos en secciones de contenido */
+}
+
+.table-title {
+    font-size: 2rem; /* Para mantener consistencia en títulos de tablas */
+}
+
+.submenu {
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .submenu {
+        position: static !important;
+        display: none;
+        width: 100%;
+    }
+
+    .menu li:hover > .submenu {
+        display: block;
+    }
+
+    .submenu li:hover > .submenu {
+        position: static !important;
+        display: block;
+    }
+
+    /* Contraste para submenús de tercer nivel */
+    .submenu .submenu {
+        background-color: #E3D5B2; /* un color más claro para diferenciar */
+        padding-left: 15px; /* sangría visual */
+    }
+
+    .submenu .submenu a {
+        background-color: #E3D5B2;
+        color: #3D3B2C;
+    }
+
+    .submenu .submenu a:hover {
+        background-color: #F0E0A0;
+    }
+    @media (max-width: 768px) {
+        .carousel-inner img {
+          height: auto;
+          max-height: 60vh;
+        }
+      
+        .carousel-control-prev,
+        .carousel-control-next {
+          width: 15%;
+        }
+      
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+          padding: 10px;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .carousel-inner img {
+          max-height: 50vh;
+        }
+      
+        .carousel-control-prev,
+        .carousel-control-next {
+          width: 20%;
+        }
+      
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+          padding: 8px;
+        }
+      }
+      main > h2 {
+        border-radius: 10px;
+        color: #FFF;
+        font-size: 2rem;
+        margin: 30px auto 50px;
+        text-align: center;
+        background-color: #A5B68D;
+        max-width: 90%;
+        width: 400px;
+    }
+    
+    /* Estilo para el contenedor de creadores */
+    .creadores {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 20px;
+        padding: 15px;
+        border-radius: 10px;
+        background-color: #EDE8DC;
+        width: 90%;
+        max-width: 1500px;
+        margin: 0 auto 20px auto;
+    }
+    
+    /* Estilo para la imagen */
+    span.foto {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin: 0;
+    }
+    
+    .foto img {
+        border-radius: 10px;
+        height: auto;
+        width: 90%;
+        max-width: 330px;
+        border: 5px solid #bb8860;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    }
+    
+    /* Información del creador */
+    .infocreador {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 90%;
+        margin: 10px auto;
+        text-align: center;
+    }
+    
+    .infocreador h2 {
+        color: #FFF;
+        font-size: 2rem;
+        border-radius: 10px;
+        background-color: #B9B28A;
+        padding: 10px;
+        width: fit-content;
+        max-width: 90%;
+        margin: 10px auto;
+    }
+    
+    /* Agradecimientos */
+    p.agradecimiento {
+        font-size: large;
+        margin: 0 auto;
+        width: fit-content;
+    }
+    
+    /* Tabla responsiva */
+    table.wiki {
+        width: 95%;
+        border-collapse: collapse;
+        margin: 30px auto;
+        font-family: Arial, sans-serif;
+        font-size: 1rem;
+        background-color: #B9B28A;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        overflow-x: auto;
+    }
+    
+    table.wiki caption {
+        caption-side: top;
+        font-size: 1.25rem;
+        font-weight: bold;
+        padding: 10px;
+        color: #333;
+    }
+    
+    table.wiki th, table.wiki td {
+        border: 1px solid #333;
+        padding: 10px;
+        text-align: left;
+        vertical-align: top;
+    }
+    
+    table.wiki th {
+        background-color: #B17F59;
+        color: #000;
+    }
+    
+    table.wiki tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    
+    /* Media Queries para pantallas menores a 768px */
+    @media (min-width: 768px) {
+        .creadores {
+            flex-direction: row;
+            align-items: flex-start;
+        }
+    
+        .infocreador {
+            align-items: flex-start;
+            text-align: left;
+            margin: 10px 20px;
+        }
+    
+        span.foto {
+            justify-content: flex-start;
+            margin-left: 30px;
+            width: auto;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        main > h2 {
+            font-size: 1.5rem;
+        }
+    
+        .infocreador h2 {
+            font-size: 1.5rem;
+        }
+    
+        table.wiki {
+            font-size: 0.9rem;
+        }
+    }
+    /* Estilo base para todos los divs */
+div {
+    max-width: 1920px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Contenedor general */
+.container {
+    max-width: 1920px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Sección de perfil */
+.profile {
+    display: flex;
+    flex-direction: column; /* Stack en pantallas pequeñas por defecto */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+}
+
+/* Imagen de perfil */
+.profile img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Media query para tablets y pantallas medianas */
+@media (min-width: 768px) {
+    .profile {
+        flex-direction: row;
+        gap: 40px;
+        text-align: left;
+    }
+
+    .profile img {
+        max-width: 400px;
+    }
+}
+
+/* Media query para pantallas grandes */
+@media (min-width: 1200px) {
+    .profile img {
+        max-width: 500px;
+    }
+}
+
+    
+  }
+
+
